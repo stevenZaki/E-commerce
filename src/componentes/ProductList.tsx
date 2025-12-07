@@ -1,7 +1,7 @@
 import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
-import { Link } from "lucide-react";
+import Link from "next/link";
 import Filter from "./Filter";
 
 const products: ProductsType = [
@@ -131,12 +131,12 @@ const ProductList = ({
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      <a
+      <Link
         href={category ? `/products/?category=${category}` : "/products"}
         className="flex justify-end mt-4 underline text-sm text-gray-500"
       >
         View All Products
-      </a>
+      </Link>
     </div>
   );
 };

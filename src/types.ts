@@ -1,5 +1,3 @@
-
-
 export type ProductType = {
   id: string | number;
   name: string;
@@ -12,3 +10,11 @@ export type ProductType = {
 };
 
 export type ProductsType = ProductType[];
+
+export type CartItemType = ProductType & {
+  quntity: number;
+  selectedSize: string;
+  selectedColor: string;
+};
+
+export type CartItemsType = CartItemType[];
