@@ -117,15 +117,38 @@ const CartPage = () => {
             <div className="flex justify-between">
               <p className="text-sm text-gray-500">Subtotal</p>
               <p className="text-sm font-medium">
+                $
                 {cartItems
                   .reduce((x, item) => x + item.price * item.quntity, 0)
                   .toFixed(2)}
               </p>
             </div>
+            <div className="flex justify-between">
+              <p className="text-sm text-gray-500">Discount(10%)</p>
+              <p className="text-sm font-medium">$10</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-sm text-gray-500">Shipping fee</p>
+              <p className="text-sm font-medium">$10</p>
+            </div>
+            <hr className="border-gray-300" />
           </div>
-          <button className="w-full bg-gray-800 hover:bg-gray-900 transitin-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">
-            Continue <ArrowRight className="w-3 h-3" />
-          </button>
+          <div className="flex justify-between">
+            <p className=" text-gray-800 font-semibold">Total</p>
+            <p className=" font-medium">
+              {cartItems
+                .reduce((x, item) => x + item.price * item.quntity, 0)
+                .toFixed(2)}
+            </p>
+          </div>
+          {activeStep === 1 && (
+            <button
+              onClick={() => router.push("/cart?step=2", { scroll: false })}
+              className="w-full bg-gray-800 hover:bg-gray-900 transitin-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2"
+            >
+              Continue <ArrowRight className="w-3 h-3" />
+            </button>
+          )}
         </div>
       </div>
     </div>
