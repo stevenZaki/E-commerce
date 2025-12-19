@@ -33,3 +33,21 @@ export const shippingFormSchema = z.object({
 });
 
 export type shippingFormInputs = z.infer<typeof shippingFormSchema>;
+
+export const paymentFormSchema = z.object({
+  cardHolder: z.string().min(1, "Card holder name is required!"),
+  cardNumber: z
+    .string()
+    .min(16, "Card number is required!")
+    .max(16, "Card number is required"),
+  expirationDate: z
+    .string()
+    .regex(
+      /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/,
+      "Invalid expiration date format (DD/MM/YYYY)"
+    ),
+
+  CVV: z.string().min(3, "CVV is required ").max(3, "CVV is required"),
+});
+
+export type paymentFormInputs = z.infer<typeof paymentFormSchema>;
