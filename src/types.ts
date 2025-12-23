@@ -14,7 +14,7 @@ export type ProductType = {
 export type ProductsType = ProductType[];
 
 export type CartItemType = ProductType & {
-  quntity: number;
+  quantity: number;
   selectedSize: string;
   selectedColor: string;
 };
@@ -54,10 +54,11 @@ export type paymentFormInputs = z.infer<typeof paymentFormSchema>;
 
 export type CartStoreStateType = {
   cart: CartItemsType;
+  hasHydrated: boolean;
 };
 
 export type CartStoreActionsType = {
   addToCart: (product: CartItemType) => void;
-  removeFromToCart: (product: CartItemType) => void;
+  removeFromCart: (product: CartItemType) => void;
   clearCart: () => void;
 };
