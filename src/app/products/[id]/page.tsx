@@ -19,7 +19,14 @@ const product: ProductType = {
 };
 
 const ProductPage = () => {
-  return <div className="flex flex-col  gap-4 lg:flex-row md:">page</div>;
+  return (
+    <div className="flex flex-col  gap-4 lg:flex-row md:gap-12 mt-12">
+      {/* IMAGE */}
+      <div className="w-full lg::w-25/12"></div>
+      {/* DETAILS */}
+      <div className="w-full lg:w-7/12"></div>
+    </div>
+  );
 };
 
 export default ProductPage;
