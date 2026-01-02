@@ -1,6 +1,7 @@
 import ProductInteraction from "@/componentes/ProductInteraction";
 import { ProductType } from "@/types";
 import Image from "next/image";
+import { string } from "zod";
 // TEMPORARY
 const product: ProductType = {
   id: 1,
@@ -17,6 +18,18 @@ const product: ProductType = {
     purple: "/products/1p.png",
     green: "/products/1gr.png",
   },
+};
+
+export const generateMetaData = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
+  // TEMPRARY
+  return {
+    title: product.name,
+    describe: product.description,
+  };
 };
 
 const ProductPage = async ({
